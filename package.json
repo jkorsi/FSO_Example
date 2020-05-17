@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node index.js",
     "test": "echo \\\"Error: no tests\\\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "build:ui": "rimraf -f build && cd ../FullStackOpen/Osa 2/esimerkit/part2-notes && npm run build --prod && cpr build ../../../../FSO_ExampleBackend/ -o",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push heroku master && npm run deploy",
+    "logs:prod": "heroku logs --tail"
   },
   "author": "Juho Suni",
   "license": "ISC",
@@ -15,6 +19,8 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "cpr": "^3.0.1",
+    "nodemon": "^2.0.2",
+    "rimraf": "^3.0.2"
   }
 }
