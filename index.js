@@ -124,6 +124,7 @@ app.post('/api/notes', (request, response) =>
     response.json(note)
 })
 
+//------GENERATE ID-------
 const generateId = () =>
 {
     const maxId = notes.length > 0
